@@ -13,6 +13,7 @@ const cookieParser = require("cookie-parser");
 app.use(express.json())
 app.use(cookieParser());
 app.use(cors({
+    origin: ['http://localhost:3000', 'http://emarkit.rf.gd'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
     credentials: true // Allow cookies and credentials
