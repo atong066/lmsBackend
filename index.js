@@ -1,4 +1,5 @@
 const express = require('express')
+var cors = require('cors')
 const app = express()
 const port = 3000
 const db = require('./models')
@@ -11,6 +12,11 @@ const sectionRouter = require('./routes/sectionRoute')
 const cookieParser = require("cookie-parser");
 app.use(express.json())
 app.use(cookieParser());
+app.use(cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true // Allow cookies and credentials
+}));
 app.use('/users', user);
 app.use('/', login);
 app.use('/post', postsRoute);
