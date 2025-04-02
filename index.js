@@ -17,7 +17,7 @@ app.use('/post', postsRoute);
 app.use('/topics', topic);
 app.use('/', faculty)
 app.use('/', sectionRouter)
-db.sequelize.sync().then((req) => {
+db.sequelize.sync({ force: true }).then((req) => {
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
     })
